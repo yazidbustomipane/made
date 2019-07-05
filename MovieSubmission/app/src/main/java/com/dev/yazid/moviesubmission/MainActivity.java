@@ -62,11 +62,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Kamu memilih " + movie.getTitle(), Toast.LENGTH_SHORT).show();
         Intent moveWithDataIntent = new Intent(MainActivity.this, DetailActivity.class);
 
-        moveWithDataIntent.putExtra("image", movie.getImage());
-        moveWithDataIntent.putExtra("title", movie.getTitle());
-        moveWithDataIntent.putExtra("release_date",movie.getReleaseDate());
-        moveWithDataIntent.putExtra("description", movie.getDescription());
-        moveWithDataIntent.putExtra("rating", movie.getRating());
+        moveWithDataIntent.putExtra("MOVIE_DETAIL",movie);
         startActivity(moveWithDataIntent);
     }
 }

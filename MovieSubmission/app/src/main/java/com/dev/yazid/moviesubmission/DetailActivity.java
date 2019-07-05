@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.dev.yazid.moviesubmission.model.Movie;
 
 public class DetailActivity extends AppCompatActivity {
     ImageView ivDataImage;
@@ -23,18 +24,14 @@ public class DetailActivity extends AppCompatActivity {
         tvDescription = findViewById(R.id.tv_data_description);
         tvRating = findViewById(R.id.tv_data_rating);
 
-        String img = getIntent().getParcelableExtra("image");
-        String title = getIntent().getParcelableExtra("title");
-        String release_date = getIntent().getParcelableExtra("release_date");
-        String description = getIntent().getParcelableExtra("description");
-        String rating = getIntent().getParcelableExtra("rating");
+        Movie movie = getIntent().getParcelableExtra("MOVIE_DETAIL");
 
-        setActionBarTitle(title);
-        Glide.with(this).load(img).into(ivDataImage);
-        tvTitle.setText(title);
-        tvReleaseDate.setText(release_date);
-        tvDescription.setText(description);
-        tvRating.setText(rating);
+        setActionBarTitle(movie.getTitle());
+        Glide.with(this).load(movie.getImage()).into(ivDataImage);
+        tvTitle.setText(movie.getTitle());
+        tvReleaseDate.setText(movie.getReleaseDate());
+        tvDescription.setText(movie.getDescription());
+        tvRating.setText(movie.getRating());
     }
 
     private void setActionBarTitle(String title){
